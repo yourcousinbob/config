@@ -77,15 +77,6 @@ local opts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 
-local m_opts = {
-	mode = "n", -- NORMAL mode
-	prefix = "m",
-	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-	silent = true, -- use `silent` when creating keymaps
-	noremap = true, -- use `noremap` when creating keymaps
-	nowait = true, -- use `nowait` when creating keymaps
-}
-
 local mappings = {
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
@@ -99,6 +90,20 @@ local mappings = {
 		s = { "<cmd>PackerSync<cr>", "Sync" },
 		S = { "<cmd>PackerStatus<cr>", "Status" },
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
+	},
+
+	G = {
+		name = "Git",
+		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+		l = { "<cmd>GitBlameToggle<cr>", "Blame" },
+		t = { "<cmd>Gitsigns toggle_signs<cr>", "Toggle Signs" },
+		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+		d = {
+			"<cmd>Gitsigns diffthis HEAD<cr>",
+			"Diff",
+		},
 	},
 
 	s = {
@@ -145,7 +150,7 @@ local mappings = {
 		p = { "<cmd>Telescope projects<cr>", "Projects" },
 		r = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
-		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+		K = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 	},
 
