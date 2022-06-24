@@ -47,7 +47,6 @@ return packer.startup(function(use)
 	use({ "JoosepAlviste/nvim-ts-context-commentstring", commit = "88343753dbe81c227a1c1fd2c8d764afb8d36269" })
 	use({ "kyazdani42/nvim-web-devicons", commit = "8d2c5337f0a2d0a17de8e751876eeb192b32310e" })
 	use({ "kyazdani42/nvim-tree.lua", commit = "bdb6d4a25410da35bbf7ce0dbdaa8d60432bc243" })
-	use({ "akinsho/bufferline.nvim", commit = "c78b3ecf9539a719828bca82fc7ddb9b3ba0c353" })
 	use({ "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" })
 	use({ "nvim-lualine/lualine.nvim", commit = "3362b28f917acc37538b1047f187ff1b5645ecdd" })
 	use({ "akinsho/toggleterm.nvim", commit = "aaeed9e02167c5e8f00f25156895a6fd95403af8" })
@@ -63,9 +62,13 @@ return packer.startup(function(use)
 	use({ "tpope/vim-repeat", commit = "24afe922e6a05891756ecf331f39a1f6743d3d5a" })
 	use({ "rcarriga/nvim-notify", commit = "7caeaaef257ecbe95473ec79e5a82757b544f1fd" })
 	use({ "Pocco81/AutoSave.nvim", commit = "3d342d6fcebeede15b6511b13a38a522c6f33bf8" })
+	use({ "matbme/JABS.nvim", commit = "b84c8e5be34d14c2708cbcb33410b543f8b161c7" })
 
-	-- Colorschemes
+	-- Colourschemes
 	use({ "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" })
+	use({ "dracula/vim", commit = "d7723a842a6cfa2f62cf85530ab66eb418521dc2" })
+	use({ "sainnhe/sonokai", commit = "e72e59d3e2cad8af17a1e2a0f6772ea56af32e2c" })
+	use({ "rebelot/kanagawa.nvim", commit = "76df2251e813fdec244b2b593be62accea930119" })
 
 	-- Cmp plugins
 	use({ "hrsh7th/nvim-cmp", commit = "df6734aa018d6feb4d76ba6bda94b1aeac2b378a" }) -- The completion plugin
@@ -83,17 +86,15 @@ return packer.startup(function(use)
 	use({ "neovim/nvim-lspconfig", commit = "148c99bd09b44cf3605151a06869f6b4d4c24455" }) -- enable LSP
 	use({ "williamboman/nvim-lsp-installer", commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6" }) -- simple to use language server installer
 	use({ "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" }) -- for formatters and linters
-	use({ "SmiteshP/nvim-navic", commit = "1eb7823c5f7ebec1f968f51a1c46978cdead82ea" }) 
 	use({ "RRethy/vim-illuminate", commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" })
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" })
-	use({ "nvim-telescope/telescope-media-files.nvim", commit = "513e4ee385edd72bf0b35a217b7e39f84b6fe93c" })
-	use({ "nvim-telescope/telescope-file-browser.nvim", commit = "61a5521853ac739ae3d0d395f52c1178108e0114" })
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", commit = "518e27589c0463af15463c9d675c65e464efc2fe" })
 	use({ "nvim-treesitter/nvim-treesitter-textobjects", commit = "b1e850b77e57b2720c06d523d6fc4776ad6a5608" })
+	use({ "SmiteshP/nvim-gps", commit = "be4bb5b903af81f04b316425b8ba8142504d023f" }) 
 
 
 	-- Git

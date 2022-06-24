@@ -82,6 +82,7 @@ local mappings = {
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["w"] = { "<cmd>w<CR>", "Write" },
 	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
+	["b"] = { '<cmd>JABSOpen<cr>', "Buffers" },
 
 	p = {
 		name = "Packer",
@@ -128,8 +129,7 @@ local mappings = {
 	f = {
 		name = "Find",
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-		b = { "<cmd>Telescope file_browser<cr>", "File Browser" },
-		B = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		f = {
 			"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 			"Find files",

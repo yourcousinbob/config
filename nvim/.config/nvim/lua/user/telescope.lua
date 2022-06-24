@@ -4,8 +4,6 @@ if not status_ok then
 end
 
 local actions = require("telescope.actions")
-telescope.load_extension("media_files")
-telescope.load_extension("file_browser")
 
 telescope.setup({
 	defaults = {
@@ -25,19 +23,5 @@ telescope.setup({
 		},
 	},
 	extensions = {
-		media_files = {
-			filetypes = { "png", "webp", "jpg", "jpeg" },
-			find_cmd = "rg",
-		},
-		file_browser = {
-			mappings = {
-				["i"] = {
-					-- your custom insert mode mappings
-				},
-				["n"] = {
-					-- your custom normal mode mappings
-				},
-			},
-		},
 	},
 })

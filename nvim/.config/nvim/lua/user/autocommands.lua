@@ -1,12 +1,29 @@
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir" },
+	pattern = { "qf", "help", "man", "lspinfo"},
 	callback = function()
 		vim.cmd([[
       nnoremap <silent> <buffer> q :close<CR> 
       set nobuflisted 
     ]])
 	end,
+})
+
+-- use k and esc to get out of qf
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = { "qf" },
+	callback = function()
+		vim.cmd([[
+      nnoremap <silent> <buffer> <CR> :close<CR> 
+      set nobuflisted 
+    ]])
+	end,
+})
+-- Illuminate
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+  callback = function()
+    vim.cmd "hi link illuminatedWord LspReferenceText"
+  end,
 })
 
 -- Remove statusline and tabline when in Alpha
@@ -20,9 +37,16 @@ vim.api.nvim_create_autocmd({ "User" }, {
 	end,
 })
 
+--Refresh winbar
+vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" }, {
+  callback = function()
+    require("user.winbar").get_winbar()
+  end,
+})
+
 -- Set wrap and spell in markdown and gitcommit
 vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "gitcommit", "markdown" },
+	pattern = { "gitcommit", "markdown" , "tex"},
 	callback = function()
 		vim.opt_local.wrap = true
 		vim.opt_local.spell = true
