@@ -43,6 +43,8 @@ local kind_icons = {
 	TypeParameter = "",
 }
 
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -55,7 +57,7 @@ cmp.setup({
 		["<C-j>"] = cmp.mapping.select_next_item(),
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+		["<C-Enter>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 		["<C-e>"] = cmp.mapping({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
@@ -96,6 +98,17 @@ cmp.setup({
 		fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)
 			vim_item.kind = kind_icons[vim_item.kind]
+
+			if entry.source.name == "copilot" then
+				vim_item.kind = ""
+				vim_item.kind_hl_group = "CmpItemKindCopilot"
+			end
+
+            if entry.source.name == "emoji" then
+                vim_item.kind = "ﲃ"
+                vim_item.kind_hl_group = "CmpItemKindEmoji"
+            end
+
 			vim_item.menu = ({
 				nvim_lsp = "",
 				nvim_lua = "",
@@ -111,8 +124,10 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
+		{ name = "copilot" },
 		{ name = "buffer" },
 		{ name = "path" },
+		{ name = "emoji" },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,

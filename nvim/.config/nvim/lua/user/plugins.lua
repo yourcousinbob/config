@@ -77,6 +77,25 @@ return packer.startup(function(use)
 	use({ "saadparwaiz1/cmp_luasnip", commit = "a9de941bcbda508d0a45d28ae366bb3f08db2e36" }) -- snippet completions
 	use({ "hrsh7th/cmp-nvim-lsp", commit = "affe808a5c56b71630f17aa7c38e15c59fd648a8" })
 	use({ "hrsh7th/cmp-nvim-lua", commit = "d276254e7198ab7d00f117e88e223b4bd8c02d21" })
+	use({ "hrsh7th/cmp-emoji", commit = "19075c36d5820253d32e2478b6aaf3734aeaafa0" })
+
+    -- use {"github/copilot.vim"}
+	--Copilot
+	use({
+		"zbirenbaum/copilot.lua",
+		event = { "VimEnter" },
+		config = function()
+			vim.defer_fn(function()
+				require("user.copilot")
+			end, 100)
+		end,
+		commit = "b4970d40880ca11260120ea4cbd9c7767cdd116d",
+	})
+	use({
+		"zbirenbaum/copilot-cmp",
+		module = "copilot_cmp",
+		commit = "bcf4a3b8f2b7bb61a2d736adbb315d081444549f",
+	})
 
 	-- Snippets
 	use({ "L3MON4D3/LuaSnip", commit = "79b2019c68a2ff5ae4d732d50746c901dd45603a" }) --snippet engine
@@ -94,8 +113,7 @@ return packer.startup(function(use)
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", commit = "518e27589c0463af15463c9d675c65e464efc2fe" })
 	use({ "nvim-treesitter/nvim-treesitter-textobjects", commit = "b1e850b77e57b2720c06d523d6fc4776ad6a5608" })
-	use({ "SmiteshP/nvim-gps", commit = "be4bb5b903af81f04b316425b8ba8142504d023f" }) 
-
+	use({ "SmiteshP/nvim-gps", commit = "be4bb5b903af81f04b316425b8ba8142504d023f" })
 
 	-- Git
 	use({ "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" })
@@ -105,36 +123,15 @@ return packer.startup(function(use)
 	use({ "rcarriga/nvim-dap-ui", commit = "d76d6594374fb54abf2d94d6a320f3fd6e9bb2f7" })
 	use({ "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" })
 
+	--For future needs
+
 	-- Java
 	-- use "mfussenegger/nvim-jdtls"
 
 	-- Tex
 	-- use "lervag/vimtex"
 
-	--[[
-  use {
-    "tzachar/cmp-tabnine",
-    config = function()
-      local tabnine = require "cmp_tabnine.config"
-      tabnine:setup {
-        max_lines = 1000,
-        max_num_results = 20,
-        sort = true,
-        run_on_every_keystroke = true,
-        snippet_placeholder = "..",
-        ignored_file_types = { -- default is not to ignore
-          -- uncomment to ignore in lua:
-          -- lua = true
-        },
-      }
-    end,
-
-    run = "./install.sh",
-    requires = "hrsh7th/nvim-cmp",
-  }
-  ]]
-	--
-	-- use "github/copilot.vim"
+	-- Sniprun
 	-- use { "michaelb/sniprun", run = "bash ./install.sh" }
 
 	-- Automatically set up configuration after cloning packer.nvim
@@ -142,3 +139,4 @@ return packer.startup(function(use)
 		require("packer").sync()
 	end
 end)
+
