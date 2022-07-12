@@ -22,7 +22,7 @@ kanagawa.setup({
 
 local my_colors = {
     waveRed = "#bf54b5",
-    waveAqua2 = "#d642ca",
+    waveAqua2 = "#ab3e6d",
     sumiInk0 = "#1b1b24"
 }
 

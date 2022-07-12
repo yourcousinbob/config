@@ -62,7 +62,10 @@ return packer.startup(function(use)
 	use({ "tpope/vim-repeat", commit = "24afe922e6a05891756ecf331f39a1f6743d3d5a" })
 	use({ "rcarriga/nvim-notify", commit = "7caeaaef257ecbe95473ec79e5a82757b544f1fd" })
 	use({ "Pocco81/AutoSave.nvim", commit = "3d342d6fcebeede15b6511b13a38a522c6f33bf8" })
-	use({ "matbme/JABS.nvim", commit = "b84c8e5be34d14c2708cbcb33410b543f8b161c7" })
+	use({ "ThePrimeagen/harpoon", commit = "d3d3d22b6207f46f8ca64946f4d781e975aec0fc" })
+	use({ "stevearc/aerial.nvim", commit = "67bddeca28c476731ed5da64876b7f71d01190d1" })
+	use({ "rmagatti/auto-session", commit = "1507429748629d11d6aa635d2c73fdfc68a84ddf" })
+	use({ "ghillb/cybu.nvim", commit = "aee926d1bc069194ae32e0e490d52fa3c1ed1bb7" })
 
 	-- Colourschemes
 	use({ "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" })
@@ -79,7 +82,7 @@ return packer.startup(function(use)
 	use({ "hrsh7th/cmp-nvim-lua", commit = "d276254e7198ab7d00f117e88e223b4bd8c02d21" })
 	use({ "hrsh7th/cmp-emoji", commit = "19075c36d5820253d32e2478b6aaf3734aeaafa0" })
 
-    -- use {"github/copilot.vim"}
+	-- use {"github/copilot.vim"}
 	--Copilot
 	use({
 		"zbirenbaum/copilot.lua",
@@ -139,4 +142,3 @@ return packer.startup(function(use)
 		require("packer").sync()
 	end
 end)
-

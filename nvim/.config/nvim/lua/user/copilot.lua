@@ -1,15 +1,14 @@
 local status_ok, copilot = pcall(require, "copilot")
 if not status_ok then
-  return
+	return
 end
 
-copilot.setup {
-  cmp = {
-    enabled = true,
-    method = "getPanelCompletions",
-  },
-  panel = { -- no config options yet
-    enabled = true,
-  },
-}
-
+copilot.setup({
+	cmp = {
+		enabled = true,
+		method = "getPanelCompletions",
+	},
+	panel = { -- no config options yet
+		enabled = true,
+	},
+})

@@ -8,6 +8,8 @@ M.winbar_filetype_exclude = {
 	"alpha",
 	"Outline",
 	"toggleterm",
+	"Aerial",
+	"harpoon"
 }
 
 local get_filename = function()

@@ -78,11 +78,16 @@ local opts = {
 }
 
 local mappings = {
-	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
+	["S"] = { "<cmd>Alpha<cr>", "Start Menu" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["w"] = { "<cmd>w<CR>", "Write" },
 	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
-	["b"] = { '<cmd>JABSOpen<cr>', "Buffers" },
+    ["a"] = { '<cmd>AerialToggle!<cr>j', "Aerial" },
+	["m"] = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Add Mark" },
+	["h"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoons" },
+	["1"] = { '<cmd>lua require("harpoon.ui").nav_file(1)<cr>', "Harpoon 1" },
+	["2"] = { '<cmd>lua require("harpoon.ui").nav_file(2)<cr>', "Harpoon 2" },
+	["3"] = { '<cmd>lua require("harpoon.ui").nav_file(3)<cr>', "Harpoon 3" },
+	["4"] = { '<cmd>lua require("harpoon.ui").nav_file(4)<cr>', "Harpoon 4" },
 
 	p = {
 		name = "Packer",
@@ -90,8 +95,7 @@ local mappings = {
 		i = { "<cmd>PackerInstall<cr>", "Install" },
 		s = { "<cmd>PackerSync<cr>", "Sync" },
 		S = { "<cmd>PackerStatus<cr>", "Status" },
-		u = { "<cmd>PackerUpdate<cr>", "Update" },
-	},
+		u = { "<cmd>PackerUpdate<cr>", "Update" }, },
 
 	G = {
 		name = "Git",
@@ -144,7 +148,6 @@ local mappings = {
 		},
 		t = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 		h = { "<cmd>Telescope help_tags<cr>", "Help" },
-		m = { "<cmd>Telescope media_files<cr>", "Media" },
 		l = { "<cmd>Telescope resume<cr>", "Last Search" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
 		p = { "<cmd>Telescope projects<cr>", "Projects" },
@@ -169,7 +172,7 @@ local mappings = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
 			"Workspace Symbols",
 		},
-		c = { "<cmd>Copilot<cr>", "Copilot" },
+		c = { "<cmd>lua require'copilot'.enable()<cr>", "Copilot" },
 	},
 
 	t = {

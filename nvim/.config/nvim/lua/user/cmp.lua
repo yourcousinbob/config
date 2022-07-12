@@ -57,7 +57,7 @@ cmp.setup({
 		["<C-j>"] = cmp.mapping.select_next_item(),
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-		["<C-Enter>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+        ["<C-Enter>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 		["<C-e>"] = cmp.mapping({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
@@ -121,13 +121,13 @@ cmp.setup({
 		end,
 	},
 	sources = {
-		{ name = "nvim_lsp" },
-		{ name = "nvim_lua" },
-		{ name = "luasnip" },
-		{ name = "copilot" },
-		{ name = "buffer" },
-		{ name = "path" },
-		{ name = "emoji" },
+		{ name = "copilot", group_index=1},
+		{ name = "nvim_lsp", group_index=2},
+		{ name = "nvim_lua", group_index=2},
+		{ name = "buffer" , group_index=2},
+		{ name = "luasnip", group_index=2},
+		{ name = "path", group_index=2},
+		{ name = "emoji", group_index=3},
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
@@ -138,6 +138,6 @@ cmp.setup({
 		documentation = cmp.config.window.bordered(),
 	},
 	experimental = {
-		ghost_text = true,
+		ghost_text = false,
 	},
 })
