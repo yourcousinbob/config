@@ -29,5 +29,9 @@ cybu.setup({
 	},
 })
 
-vim.keymap.set("n", "<S-h>", "<Plug>(CybuPrev)")
-vim.keymap.set("n", "<S-l>", "<Plug>(CybuNext)")
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_set_keymap
+
+-- Cybu --
+keymap("n", "<S-h>", "<Plug>(CybuPrev)", opts)
+keymap("n", "<S-l>", "<Plug>(CybuNext)", opts)

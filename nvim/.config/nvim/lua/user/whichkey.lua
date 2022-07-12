@@ -78,16 +78,16 @@ local opts = {
 }
 
 local mappings = {
-	["S"] = { "<cmd>Alpha<cr>", "Start Menu" },
+	["s"] = { "<cmd>Alpha<cr>", "Start" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
+	["c"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
     ["a"] = { '<cmd>AerialToggle!<cr>j', "Aerial" },
-	["m"] = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Add Mark" },
+	["m"] = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Mark" },
 	["h"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoons" },
-	["1"] = { '<cmd>lua require("harpoon.ui").nav_file(1)<cr>', "Harpoon 1" },
-	["2"] = { '<cmd>lua require("harpoon.ui").nav_file(2)<cr>', "Harpoon 2" },
-	["3"] = { '<cmd>lua require("harpoon.ui").nav_file(3)<cr>', "Harpoon 3" },
-	["4"] = { '<cmd>lua require("harpoon.ui").nav_file(4)<cr>', "Harpoon 4" },
+	["1"] = { '<cmd>lua require("harpoon.ui").nav_file(1)<cr>', "Mark 1" },
+	["2"] = { '<cmd>lua require("harpoon.ui").nav_file(2)<cr>', "Mark 2" },
+	["3"] = { '<cmd>lua require("harpoon.ui").nav_file(3)<cr>', "Mark 3" },
+	["4"] = { '<cmd>lua require("harpoon.ui").nav_file(4)<cr>', "Mark 4" },
 
 	p = {
 		name = "Packer",
@@ -95,7 +95,8 @@ local mappings = {
 		i = { "<cmd>PackerInstall<cr>", "Install" },
 		s = { "<cmd>PackerSync<cr>", "Sync" },
 		S = { "<cmd>PackerStatus<cr>", "Status" },
-		u = { "<cmd>PackerUpdate<cr>", "Update" }, },
+		u = { "<cmd>PackerUpdate<cr>", "Update" },
+	},
 
 	G = {
 		name = "Git",
@@ -111,9 +112,9 @@ local mappings = {
 		},
 	},
 
-	s = {
+	S = {
 		name = "Split",
-		s = { "<cmd>split<cr>", "HSplit" },
+		h = { "<cmd>split<cr>", "HSplit" },
 		v = { "<cmd>vsplit<cr>", "VSplit" },
 	},
 
@@ -201,7 +202,7 @@ local vopts = {
 }
 
 local vmappings = {
-	["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
+	["c"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
 }
 
 which_key.setup(setup)

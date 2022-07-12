@@ -15,9 +15,7 @@ nvim_tree.setup({
 		enable = false,
 	},
 	ignore_ft_on_setup = {
-		"startify",
-		"dashboard",
-		"alpha",
+		"alpha"
 	},
 	filters = {
 		custom = { ".git" },
