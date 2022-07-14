@@ -1,0 +1,4 @@
+brave-bin
+networkmanager-dmenu-git
+wired
+yay-git
