@@ -14,7 +14,7 @@ browser = "brave"
 keys = [
     Key([mod], "Return", lazy.spawn(term), desc="Terminal"),
     Key([mod], "b", lazy.spawn(browser), desc="Browser"),
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle through layouts"),
+    Key([mod, "shift"], "Tab", lazy.next_layout(), desc="Toggle through layouts"),
     Key([mod], "c", lazy.window.kill(), desc="Kill active window"),
     Key([mod, "shift"], "r", lazy.restart(), desc="Restart Qtile"),
     Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
@@ -62,7 +62,7 @@ keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc="toggle fullscreen"),
     ### Stack controls
     Key(
-        [mod, "shift"],
+        [mod],
         "Tab",
         lazy.layout.rotate(),
         lazy.layout.flip(),

@@ -24,7 +24,6 @@ binutils
 bison
 blas
 bluez-libs
-brave-bin
 brotli
 btrfs-progs
 bzip2
@@ -291,7 +290,6 @@ ncurses
 netpbm
 nettle
 networkmanager
-networkmanager-dmenu-git
 nitrogen
 npth
 nspr
@@ -392,7 +390,6 @@ vulkan-icd-loader
 wayland
 webrtc-audio-processing
 which
-wired
 wpa_supplicant
 x265
 xcb-proto
@@ -459,7 +456,6 @@ xorg-xwininfo
 xorg-xwud
 xorgproto
 xz
-yay-git
 zeromq
 zlib
 zoxide

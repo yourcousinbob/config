@@ -1,22 +1,27 @@
 local null_ls_status_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_status_ok then
-  return
+    return
 end
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup {
-  debug = false,
-  sources = {
-    formatting.prettier.with {
-      extra_filetypes = { "toml" },
-      extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+    debug = false,
+    sources = {
+        -- Web
+        formatting.prettier.with {
+            extra_filetypes = { "toml" },
+            extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+        },
+        -- Python
+        formatting.yapf,
+        diagnostics.flake8,
+        --formatting.black.with { extra_args = { "--fast" } },
+        -- Lua
+        formatting.stylua,
+        -- Shell
+        formatting.beautysh,
+        diagnostics.shellcheck,
     },
-    formatting.yapf,
-    --formatting.black.with { extra_args = { "--fast" } },
-    formatting.stylua,
-    --formatting.google_java_format,
-    diagnostics.flake8,
-  },
 }

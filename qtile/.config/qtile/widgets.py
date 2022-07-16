@@ -56,7 +56,7 @@ widgets_list = [
         colour_have_updates=colours["autumnRed"],
         colour_no_updates=widget_theme["foreground"],
         mouse_callbacks={
-            "Button1": lambda: qtile.cmd_spawn(term + "yay")
+            "Button1": lambda: qtile.cmd_spawn("yay")
         },
         padding=0,
         fontsize=30,
@@ -72,7 +72,7 @@ widgets_list = [
         colour_have_updates=colours["autumnRed"],
         colour_no_updates=widget_theme["foreground"],
         mouse_callbacks={
-            "Button1": lambda: qtile.cmd_spawn(term + "yay")
+            "Button1": lambda: qtile.cmd_spawn("yay")
         },
         padding=10,
         fontsize=widget_theme["fontsize"],

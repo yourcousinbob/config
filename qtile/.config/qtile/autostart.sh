@@ -2,6 +2,9 @@
 # Walpaper
 nitrogen ./arch.jpg &
 
+# Media Player
+playerctld daemon &
+
 # Notifications
 wired &
 
