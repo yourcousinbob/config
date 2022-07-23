@@ -7,7 +7,7 @@ groups = [
     Group("", layout="monadtall"),
     Group("爵", layout="monadtall"),
     Group("", layout="monadtall"),
-    Group("", layout="monadtall"),
+    Group("", layout="monadtall"),
     Group("", layout="floating"),
 ]
 

@@ -7,14 +7,21 @@ from keymaps import term
 
 widgets_list = [
     # Icon
-    widget.Sep(linewidth=0, padding=8, background=widget_theme["background"]),
+    widget.Sep(linewidth=0, padding=10, background=widget_theme["background"]),
     widget.Image(
         filename="~/config/qtile/.config/qtile/icons/fatpinkbob.png",
         scale="False",
         mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(term)},
         background=widget_theme["background"],
     ),
-    widget.Sep(linewidth=0, padding=4, background=widget_theme["background"]),
+    widget.TextBox(
+        text="|",
+        font=widget_theme["font"],
+        foreground=widget_theme["foreground"],
+        background=widget_theme["background"],
+        padding=2,
+        fontsize=14,
+    ),
     widget.GroupBox(
         font=widget_theme["font"],
         fontsize=32,
@@ -31,14 +38,13 @@ widgets_list = [
         this_current_screen_border=colours["oldWhite"],
         background=widget_theme["background"],
     ),
-    widget.CurrentLayoutIcon(
-        custom_icon_paths=[
-            os.path.expanduser("~/config/qtile/.config/qtile/icons/currentlayout")
-        ],
+    widget.TextBox(
+        text="|",
+        font=widget_theme["font"],
         foreground=widget_theme["foreground"],
         background=widget_theme["background"],
-        padding=0,
-        scale=0.7,
+        padding=2,
+        fontsize=14,
     ),
     widget.WindowName(
         foreground=widget_theme["foreground"],
