@@ -2,8 +2,6 @@ import os
 from libqtile.lazy import lazy
 from libqtile.config import Key
 
-ROFI_PATH = "~/.config/rofi/scripts/"
-
 # Mod key super
 mod = "mod4"
 
@@ -80,8 +78,9 @@ keys = [
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-    Key([mod, "mod1"], "Return", lazy.spawn("rofi-apps"), desc="Run Launcher"),
+    Key([mod], "r", lazy.spawn("rofi-apps"), desc="Run Launcher"),
     Key([mod], "m", lazy.spawn("rofi-music"), desc="Music Player"),
     Key([mod], "p", lazy.spawn("rofi-power"), desc="Power menu"),
-    Key([mod], "n", lazy.spawn("rofi-network"), desc="Network manager"),
+    Key([mod], "s", lazy.spawn("rofi-screenshot"), desc="Screenshot"),
+    Key([mod], "n", lazy.spawn("networkmanager_dmenu"), desc="Network manager"),
 ]

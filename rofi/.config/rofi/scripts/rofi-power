@@ -26,17 +26,15 @@ case "$chosen" in
         ;;
 
     "$lock")
-        # TODO Add your lockscreen command.
+        qtile cmd-obj -o cmd -f shutdown
         ;;
 
     "$sleep")
-        # Pause music
-        amixer set Master mute
-        # TODO Add your sleep command.
+        systemctl suspend
         ;;
 
     "$log_out")
-        # TODO Add your log out command.
+        qtile cmd-obj -o cmd -f shutdown
         ;;
 
     *) exit 1 ;;

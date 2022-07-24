@@ -1,5 +1,5 @@
-from libqtile.config import Group
-from libqtile.dgroups import simple_key_binder
+from libqtile.lazy import lazy
+from libqtile.config import Group, Key
 
 from keymaps import mod
 
@@ -11,7 +11,37 @@ groups = [
     Group("", layout="floating"),
 ]
 
-dgroups_key_binder = simple_key_binder(mod)
+def group_key_binder(mod, keynames=None):
+    """Bind keys to mod+group position or to the keys specified as second argument"""
+
+    def func(dgroup):
+        # unbind all
+        for key in dgroup.keys[:]:
+            dgroup.qtile.ungrab_key(key)
+            dgroup.keys.remove(key)
+
+        if keynames:
+            keys = keynames
+        else:
+            # keys 1 to 9 and 0
+            keys = list(map(str, list(range(1, 10)) + [0]))
+
+        # bind all keys
+        for keyname, group in zip(keys, dgroup.qtile.groups):
+            name = group.name
+            key = Key([mod], keyname, lazy.group[name].toscreen())
+            key_s = Key([mod, "mod1"], keyname, lazy.window.togroup(name))
+            key_c = Key([mod, "control"], keyname, lazy.group.switch_groups(name))
+            dgroup.keys.append(key)
+            dgroup.keys.append(key_s)
+            dgroup.keys.append(key_c)
+            dgroup.qtile.grab_key(key)
+            dgroup.qtile.grab_key(key_s)
+            dgroup.qtile.grab_key(key_c)
+
+    return func
+
+dgroups_key_binder = group_key_binder(mod)
 
 def window_to_prev_group(qtile):
     if qtile.currentWindow is not None:

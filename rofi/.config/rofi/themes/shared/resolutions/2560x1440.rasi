@@ -21,7 +21,7 @@
    * We then add add 100 actual padding around the icons.
    *                                    -12px 0px   -19px -96px */
   option-element-padding:               88px  100px 81px  4px;
-  option-3-window-padding:              407px 442px;
+  option-3-window-padding:              577px 762px;
   option-3-listview-spacing:            126px;
   option-5-window-padding:              557px 497px;
   option-5-listview-spacing:            65px;

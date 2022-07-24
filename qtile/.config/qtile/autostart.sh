@@ -2,11 +2,14 @@
 # Walpaper
 nitrogen ./arch.jpg &
 
-# Media Player
+# Media Controller
 playerctld daemon &
 
 # Notifications
 wired &
+
+# Clipboard
+clipster -d &
 
 # Compositor
 picom -b
