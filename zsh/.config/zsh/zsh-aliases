@@ -3,9 +3,6 @@ alias j='z'
 alias f='zi'
 alias g='lazygit'
 alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
-alias nvimrc='nvim ~/.config/nvim/'
-
-# alias lvim='nvim -u ~/.local/share/lunarvim/lvim/init.lua --cmd "set runtimepath+=~/.local/share/lunarvim/lvim"'
 
 # get fastest mirrors
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
@@ -42,13 +39,8 @@ alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 # For when keys break
 alias archlinx-fix-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
 
-# systemd
-alias mach_list_systemctl="systemctl list-unit-files --state=enabled"
+# system upgrade
+alias update="yay && rofi-prompt --query 'Reboot?' && reboot"
 
-alias mach_java_mode="export SDKMAN_DIR="$HOME/.sdkman" && [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh""
-
-alias m="git checkout master"
-alias s="git checkout stable"
-
-#Aids for rofi
-PATH=/home/bob/.miniconda/bin:/run/user/1000/fnm_multishells/22323_1657195448486/bin:/home/bob/programs/fnm:/home/bob/.fnm:/home/bob/.local/share/go/bin:/home/bob/.cargo/bin:/home/bob/.local/bin:/home/bob/.miniconda/bin:/run/user/1000/fnm_multishells/17679_1657193528415/bin:/home/bob/programs/fnm:/home/bob/.fnm:/home/bob/.local/share/go/bin:/home/bob/.cargo/bin:/home/bob/.local/bin:/home/bob/.miniconda/bin:/run/user/1000/fnm_multishells/1144_1657187426419/bin:/home/bob/programs/fnm:/home/bob/.fnm:/home/bob/.local/share/go/bin:/home/bob/.cargo/bin:/home/bob/.local/bin:/home/bob/.miniconda/bin:/run/user/1000/fnm_multishells/533_1657187355700/bin:/home/bob/programs/fnm:/home/bob/.fnm:/home/bob/.local/share/go/bin:/home/bob/.cargo/bin:/home/bob/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:./node_modules/.bin:./node_modules/.bin:./node_modules/.bin:./node_modules/.bin:/home/bob/.local/bin
+#TODO: CHANGE THIS LATER
+PATH=/run/user/1000/fnm_multishells/68343_1657801494265/bin:/home/bob/.fnm:/home/bob/.miniconda/bin:/run/user/1000/fnm_multishells/22323_1657195448486/bin:/home/bob/programs/fnm:/home/bob/.fnm:/home/bob/.local/share/go/bin:/home/bob/.cargo/bin:/home/bob/.local/bin:/home/bob/.miniconda/bin:/run/user/1000/fnm_multishells/17679_1657193528415/bin:/home/bob/programs/fnm:/home/bob/.fnm:/home/bob/.local/share/go/bin:/home/bob/.cargo/bin:/home/bob/.local/bin:/home/bob/.miniconda/bin:/run/user/1000/fnm_multishells/1144_1657187426419/bin:/home/bob/programs/fnm:/home/bob/.fnm:/home/bob/.local/share/go/bin:/home/bob/.cargo/bin:/home/bob/.local/bin:/home/bob/.miniconda/bin:/run/user/1000/fnm_multishells/533_1657187355700/bin:/home/bob/programs/fnm:/home/bob/.fnm:/home/bob/.local/share/go/bin:/home/bob/.cargo/bin:/home/bob/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:./node_modules/.bin:./node_modules/.bin:./node_modules/.bin:./node_modules/.bin:/home/bob/.local/bin:/home/bob/.local/bin

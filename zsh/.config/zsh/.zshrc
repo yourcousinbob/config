@@ -69,3 +69,7 @@ autoload edit-command-line; zle -N edit-command-line
 setxkbmap -option caps:escape
 # remap alt and windows
 setxkbmap -option altwin:swap_lalt_lwin
+
+# fnm
+export PATH=/home/bob/.fnm:$PATH
+eval "`fnm env`"

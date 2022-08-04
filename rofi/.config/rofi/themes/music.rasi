@@ -25,7 +25,7 @@ textbox-prompt-colon {
 }
 #textbox-prompt-colon {
   expand: false;
-  str: "music";
+  str: "Artist:\n\nAlbum:\n\nTitle:";
   background-color: @accent;
   text-color: @background;
 }

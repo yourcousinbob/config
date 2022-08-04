@@ -50,7 +50,7 @@ colours = {
 layout_theme = {
     "border_width": 2,
     "margin": 0,
-    "border_focus": colours["fujiWhite"],
+    "border_focus": colours["oniViolet"],
     "border_normal": colours["sumiInk0"],
     "fontsize": 16
 }
@@ -68,3 +68,4 @@ extension_theme = {
     "padding": 2,
     "background": colours["katanaGray"],
 }
+

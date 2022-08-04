@@ -8,9 +8,4 @@ xset s noblank
 xset -b
 xset r rate 210 40
 
-# remap caps to escape
-setxkbmap -option caps:escape
-# remap alt and windows
-setxkbmap -option altwin:swap_lalt_lwin
-
 qtile start

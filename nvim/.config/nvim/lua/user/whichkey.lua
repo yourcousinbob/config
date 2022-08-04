@@ -84,6 +84,7 @@ local mappings = {
     ["a"] = { '<cmd>AerialToggle!<cr>j', "Aerial" },
 	["m"] = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Mark" },
 	["h"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoons" },
+	["q"] = { '<cmd>wqa<cr>', "Quit" },
 	["1"] = { '<cmd>lua require("harpoon.ui").nav_file(1)<cr>', "Mark 1" },
 	["2"] = { '<cmd>lua require("harpoon.ui").nav_file(2)<cr>', "Mark 2" },
 	["3"] = { '<cmd>lua require("harpoon.ui").nav_file(3)<cr>', "Mark 3" },

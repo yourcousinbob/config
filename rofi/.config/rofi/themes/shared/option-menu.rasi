@@ -1,6 +1,6 @@
 /**
  * Settings used in every rofi option menu:
- *  - i3-layout
+ *  - layout
  *  - music
  *  - power
  *  - screenshot
