@@ -107,5 +107,4 @@ nvim_tree.setup({
         number = false,
         relativenumber = false,
     },
-    respect_buf_cwd = true,
 })
