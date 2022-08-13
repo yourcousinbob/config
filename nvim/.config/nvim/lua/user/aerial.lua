@@ -104,7 +104,7 @@ aerial.setup({
 		unlisted_buffers = true,
 
 		-- List of filetypes to ignore.
-		filetypes = {},
+		filetypes = {"markdown"},
 
 		-- Ignored buftypes.
 		-- Can be one of the following:

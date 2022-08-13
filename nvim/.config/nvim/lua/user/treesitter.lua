@@ -9,7 +9,7 @@ ft_to_parser.motoko = "typescript"
 configs.setup({
 	ensure_installed = "all", -- one of "all" or a list of languages
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-	ignore_install = { "" }, -- List of parsers to ignore installing
+	ignore_install = { "markdown" }, -- List of parsers to ignore installing
 	highlight = {
 		enable = true, -- false will disable the whole extension
 		disable = { "css", "markdown" }, -- list of language that will be disabled
