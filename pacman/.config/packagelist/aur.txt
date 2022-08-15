@@ -1,3 +1,10 @@
-brave-bin
+beautysh
+clifm
+clipster
+fnm
+miniconda3
 networkmanager-dmenu-git
+nsxiv
+polkit-dumb-agent-git
+sddm-sugar-dark
 wired
