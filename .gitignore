@@ -1,3 +1,7 @@
 ./nvim/.config/nvim/plugin
 
 nvim/.config/nvim/plugin
+alacritty/.config/alacritty/colorschemes
+openbox/.config/openbox/polybar
+openbox/.config/openbox/rofi
+openbox/.config/openbox/scripts
