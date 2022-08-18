@@ -114,7 +114,7 @@ return packer.startup(function(use)
 	use({ "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" })
 
 	-- Treesitter
-	use({ "nvim-treesitter/nvim-treesitter", commit = "518e27589c0463af15463c9d675c65e464efc2fe" })
+	use({ "nvim-treesitter/nvim-treesitter", commit = "9b3f1275018b7cac15ef07af880e1f010a959963" })
 	use({ "nvim-treesitter/nvim-treesitter-textobjects", commit = "b1e850b77e57b2720c06d523d6fc4776ad6a5608" })
 	use({ "SmiteshP/nvim-gps", commit = "be4bb5b903af81f04b316425b8ba8142504d023f" })
 

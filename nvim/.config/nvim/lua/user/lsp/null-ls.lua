@@ -21,7 +21,7 @@ null_ls.setup {
         -- Lua
         formatting.stylua,
         -- Shell
-        formatting.beautysh,
+        -- formatting.beautysh,
         diagnostics.shellcheck,
     },
 }

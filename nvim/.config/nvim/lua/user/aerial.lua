@@ -104,7 +104,7 @@ aerial.setup({
 		unlisted_buffers = true,
 
 		-- List of filetypes to ignore.
-		filetypes = {},
+		filetypes = {"markdown"},
 
 		-- Ignored buftypes.
 		-- Can be one of the following:
@@ -159,7 +159,7 @@ aerial.setup({
 
 	-- Automatically open aerial when entering supported buffers.
 	-- This can be a function (see :help aerial-open-automatic)
-	open_automatic = false,
+	open_automatic = true,
 
 	-- Set to true to only open aerial at the far right/left of the editor
 	-- Default behavior opens aerial relative to current window
