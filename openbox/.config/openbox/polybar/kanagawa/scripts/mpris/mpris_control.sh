@@ -124,7 +124,7 @@ get_icon() {
         res="嗢"
         ;;
     esac
-    echo " $res "
+    echo "$res "
 }
 
 update_state

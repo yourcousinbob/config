@@ -586,14 +586,14 @@
       <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- Activate Move/Resize -->
-    <keybind key="A-r">
+    <keybind key="A-p">
       <action name="Resize"/>
     </keybind>
     <keybind key="A-m">
       <action name="Move"/>
     </keybind>
     <!-- Launch Openbox Menu -->
-    <keybind key="W-Backspace">
+    <keybind key="A-r">
       <action name="ShowMenu">
         <menu>root-menu</menu>
       </action>
@@ -863,7 +863,7 @@
   </mouse>
   <!-- ################################ Menu Settings ################################ -->
   <menu>
-    <file>menu-icons.xml</file>
+    <file>menu-glyphs.xml</file>
     <hideDelay>400</hideDelay>
     <middle>no</middle>
     <submenuShowDelay>100</submenuShowDelay>
@@ -875,7 +875,7 @@
   <applications>
     <application class="*">
       <focus>yes</focus>
-      <decor>no</decor>
+      <decor>yes</decor>
     </application>
     <application name="obconf">
       <position force="yes">
@@ -895,7 +895,8 @@
         <y>center</y>
       </position>
     </application>
-    <application name="brave">
+    <application name="Brave">
+      <decor>no</decor>
       <position force="yes">
         <x>center</x>
         <y>center</y>
@@ -905,7 +906,19 @@
       </size>
       <desktop>1</desktop>
     </application>
-    <application name="discord">
+    <application name="electron">
+      <position force="yes">
+        <x>center</x>
+        <y>center</y>
+      </position>
+      <size>
+        <width>100%</width>
+      </size>
+      <desktop>4</desktop>
+      <decor>no</decor>
+    </application>
+    <application name="Steam">
+      <decor>no</decor>
       <position force="yes">
         <x>center</x>
         <y>center</y>
@@ -915,8 +928,8 @@
       </size>
       <desktop>4</desktop>
     </application>
-    <application name="thunar">
-      <decor>yes</decor>
+    <application name="Alacritty">
+      <decor>no</decor>
     </application>
     <!--
   # this is an example with comments through out. use these to make your
