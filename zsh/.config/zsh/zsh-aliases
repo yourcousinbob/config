@@ -42,5 +42,23 @@ alias archlinx-fix-keys="sudo pacman-key --init && sudo pacman-key --populate ar
 # system upgrade
 alias update="yay && rofi-prompt --query 'Reboot?' && reboot"
 
-#TODO: CHANGE THIS LATER
-PATH=/run/user/1000/fnm_multishells/68343_1657801494265/bin:/home/bob/.fnm:/home/bob/.miniconda/bin:/run/user/1000/fnm_multishells/22323_1657195448486/bin:/home/bob/programs/fnm:/home/bob/.fnm:/home/bob/.local/share/go/bin:/home/bob/.cargo/bin:/home/bob/.local/bin:/home/bob/.miniconda/bin:/run/user/1000/fnm_multishells/17679_1657193528415/bin:/home/bob/programs/fnm:/home/bob/.fnm:/home/bob/.local/share/go/bin:/home/bob/.cargo/bin:/home/bob/.local/bin:/home/bob/.miniconda/bin:/run/user/1000/fnm_multishells/1144_1657187426419/bin:/home/bob/programs/fnm:/home/bob/.fnm:/home/bob/.local/share/go/bin:/home/bob/.cargo/bin:/home/bob/.local/bin:/home/bob/.miniconda/bin:/run/user/1000/fnm_multishells/533_1657187355700/bin:/home/bob/programs/fnm:/home/bob/.fnm:/home/bob/.local/share/go/bin:/home/bob/.cargo/bin:/home/bob/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:./node_modules/.bin:./node_modules/.bin:./node_modules/.bin:./node_modules/.bin:/home/bob/.local/bin:/home/bob/.local/bin
+# zsh
+alias zshconfig="nvim ~/.zshrc"
+
+# ls
+alias l='ls -lh'
+alias ll='ls -lah'
+alias la='ls -A'
+alias lm='ls -m'
+alias lr='ls -R'
+alias lg='ls -l --group-directories-first'
+
+# git
+alias gcl='git clone --depth 1'
+alias gi='git init'
+alias ga='git add'
+alias gc='git commit -m'
+alias gp='git push origin master'
+
+# conda
+alias anaconda='source ~/.config/zsh/conda'
