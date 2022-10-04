@@ -7,6 +7,7 @@ local servers = {
     "pyright",
     "sumneko_lua",
     "marksman",
+    "eslint",
     "bashls"
 }
 
@@ -38,6 +39,11 @@ for _, server in pairs(servers) do
     if server == "bashls" then
         local bashls_opts = require "user.lsp.settings.bashls"
         opts = vim.tbl_deep_extend("force", bashls_opts, opts)
+    end
+
+    if server == "eslint" then
+        local eslint_opts = require "user.lsp.settings.eslint"
+        opts = vim.tbl_deep_extend("force", eslint_opts, opts)
     end
 
     lspconfig[server].setup(opts)

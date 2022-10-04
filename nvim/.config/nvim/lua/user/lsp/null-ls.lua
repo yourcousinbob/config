@@ -23,5 +23,6 @@ null_ls.setup {
         -- Shell
         -- formatting.beautysh,
         diagnostics.shellcheck,
+        formatting.eslint_d
     },
 }
