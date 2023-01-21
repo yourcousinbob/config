@@ -10,7 +10,7 @@ autosave.setup({
 	conditions = {
 		exists = true,
 		filename_is_not = {'plugins.lua'},
-		filetype_is_not = {},
+		filetype_is_not = {'lua'},
 		modifiable = true,
 	},
 	write_all_buffers = true,

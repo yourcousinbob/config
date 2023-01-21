@@ -15,9 +15,9 @@ null_ls.setup {
             extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
         },
         -- Python
-        formatting.yapf,
-        diagnostics.flake8,
-        --formatting.black.with { extra_args = { "--fast" } },
+        -- formatting.yapf,
+        formatting.black.with { extra_args = { "--fast" } },
+        -- diagnostics.flake8,
         -- Lua
         formatting.stylua,
         -- Shell

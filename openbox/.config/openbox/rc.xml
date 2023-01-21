@@ -918,7 +918,6 @@
       <decor>no</decor>
     </application>
     <application name="Steam">
-      <decor>no</decor>
       <position force="yes">
         <x>center</x>
         <y>center</y>
