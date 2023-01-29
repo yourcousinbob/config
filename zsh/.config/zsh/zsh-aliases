@@ -18,17 +18,6 @@ alias fgrep='fgrep --color=auto'
 # confirm before overwriting something
 alias cp="cp -i"
 alias mv='mv -i'
-alias rm='rm -i'
-
-# easier to read disk
-alias df='df -h'     # human-readable sizes
-alias free='free -m' # show sizes in MB
-
-# get top process eating memory
-alias psmem='ps auxf | sort -nr -k 4 | head -5'
-
-# get top process eating cpu ##
-alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 
 # gpg encryption
 # verify signature for isos
@@ -46,12 +35,9 @@ alias update="yay && rofi-prompt --query 'Reboot?' && reboot"
 alias zshconfig="nvim ~/.zshrc"
 
 # ls
-alias l='ls -lh'
-alias ll='ls -lah'
-alias la='ls -A'
-alias lm='ls -m'
-alias lr='ls -R'
-alias lg='ls -l --group-directories-first'
+alias ls='exa --icons'
+alias la='exa --icons -a'
+alias ll='exa --icons --git -al'
 
 # git
 alias gcl='git clone --depth 1'
@@ -62,3 +48,22 @@ alias gp='git push origin master'
 
 # conda
 alias anaconda='source ~/.config/zsh/conda'
+
+# cat
+alias cat='bat'
+
+# df
+alias df='duf'
+alias free='free -m' # show sizes in MB
+
+# ps
+alias ps='procs'
+
+# rm
+alias rm='rip'
+
+# ping
+alias ping='gping'
+
+# htop
+alias htop='btop'

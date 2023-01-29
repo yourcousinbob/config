@@ -80,7 +80,7 @@ local opts = {
 local mappings = {
     ["s"] = { "<cmd>Alpha<cr>", "Start" },
     ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-    ["c"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
+    ["c"] = { '<Plug>(comment_toggle_linewise_current)', "Comment" },
     ["a"] = { "<cmd>AerialToggle!<cr>j", "Aerial" },
     ["m"] = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Mark" },
     ["h"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoons" },
@@ -184,11 +184,8 @@ local mappings = {
         ["3"] = { ":3ToggleTerm<cr>", "3" },
         ["4"] = { ":4ToggleTerm<cr>", "4" },
         g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-        t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+        t = { "<cmd>lua _BTOP_TOGGLE()<cr>", "System Monitor" },
         p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-        n = { "<cmd>lua _JOPLIN_TOGGLE()<cr>", "Notes" },
-        f = { "<cmd>lua _FM_TOGGLE()<cr>", "File Manager" },
-        -- f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
     },
@@ -202,6 +199,12 @@ local mappings = {
         i = { "<Plug>SnipInfo", "Snip Info" },
         s = { "<Plug>SnipReset", "Stop" },
     },
+
+    z = {
+        name = "Fun",
+        r = { "<cmd>CellularAutomaton make_it_rain<cr>", "Rain" },
+        g = { "<cmd>CellularAutomaton game_of_life<cr>", "Game of Life" },
+    },
 }
 
 local vopts = {
@@ -214,7 +217,7 @@ local vopts = {
 }
 
 local vmappings = {
-    ["c"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
+    ["c"] = { '<Plug>(comment_toggle_linewise_visual)', "Comment" },
     ["B"] = { "<Plug>SnipRun", "Run" },
 }
 

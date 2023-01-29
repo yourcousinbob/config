@@ -15,29 +15,29 @@ configs.setup({
 		disable = { "css", "markdown" }, -- list of language that will be disabled
 		additional_vim_regex_highlighting = true,
 	},
-	autopairs = {
-		enable = true,
-	},
-	indent = { enable = true, disable = { "css" } },
+	--autopairs = {
+		--enable = true,
+	--},
+	--indent = { enable = true, disable = { "css" } },
 	context_commentstring = { enable = true,
 		enable_autocmd = false,
 	},
-	autotag = {
-		enable = true,
-		disable = { "xml" },
-	},
-	rainbow = {
-		enable = true,
-		colors = {
-			"Gold",
-			"Orchid",
-			"DodgerBlue",
-		},
-		disable = { "html" },
-	},
-	playground = {
-		enable = true,
-	},
+	--autotag = {
+		--enable = true,
+		--disable = { "xml" },
+	--},
+	--rainbow = {
+		--enable = true,
+		--colors = {
+			--"Gold",
+			--"Orchid",
+			--"DodgerBlue",
+		--},
+		--disable = { "html" },
+	--},
+	--playground = {
+		--enable = true,
+	--},
 	textobjects = {
 		select = {
 			enable = true,
@@ -75,3 +75,4 @@ configs.setup({
 		},
 	},
 })
+

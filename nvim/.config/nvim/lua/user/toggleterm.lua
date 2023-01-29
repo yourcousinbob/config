@@ -56,26 +56,14 @@ function _NCDU_TOGGLE()
 	ncdu:toggle()
 end
 
-local htop = Terminal:new({ cmd = "htop", hidden = true })
+local btop = Terminal:new({ cmd = "btop", hidden = true })
 
-function _HTOP_TOGGLE()
-	htop:toggle()
+function _BTOP_TOGGLE()
+	btop:toggle()
 end
 
 local python = Terminal:new({ cmd = "python", hidden = true })
 
 function _PYTHON_TOGGLE()
 	python:toggle()
-end
-
-local joplin = Terminal:new({ cmd = "joplin", hidden = true })
-
-function _JOPLIN_TOGGLE()
-	joplin:toggle()
-end
-
-local file_manager = Terminal:new({ cmd = "clifm", hidden = true })
-
-function _FM_TOGGLE()
-	file_manager:toggle()
 end

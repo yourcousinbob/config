@@ -8,7 +8,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     ]])
 	end,
 })
-
 -- use k and esc to get out of qf
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = { "qf" },
@@ -68,3 +67,4 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 		vim.highlight.on_yank({ higroup = "Visual", timeout = 200 })
 	end,
 })
+
