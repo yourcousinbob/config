@@ -3,8 +3,6 @@ if not status_ok then
 	return
 end
 
-local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
-ft_to_parser.motoko = "typescript"
 
 configs.setup({
 	ensure_installed = "all", -- one of "all" or a list of languages
@@ -26,7 +24,7 @@ configs.setup({
 		--enable = true,
 		--disable = { "xml" },
 	--},
-	--rainbow = {
+	--rainbow ={
 		--enable = true,
 		--colors = {
 			--"Gold",

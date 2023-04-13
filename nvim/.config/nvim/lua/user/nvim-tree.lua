@@ -14,9 +14,6 @@ nvim_tree.setup({
     hijack_directories = {
         enable = false,
     },
-    ignore_ft_on_setup = {
-        "alpha",
-    },
     filters = {
         custom = { ".git" },
         exclude = { ".gitignore" },

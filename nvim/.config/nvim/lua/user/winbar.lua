@@ -9,7 +9,7 @@ M.winbar_filetype_exclude = {
 	"Outline",
 	"toggleterm",
 	"Aerial",
-	"harpoon"
+	"harpoon",
 }
 
 local get_filename = function()
@@ -18,11 +18,8 @@ local get_filename = function()
 	local f = require("user.functions")
 
 	if not f.isempty(filename) then
-		local file_icon, file_icon_color = require("nvim-web-devicons").get_icon_color(
-			filename,
-			extension,
-			{ default = true }
-		)
+		local file_icon, file_icon_color =
+			require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
 
 		local hl_group = "FileIconColor" .. extension
 
@@ -37,7 +34,7 @@ local get_filename = function()
 end
 
 local get_gps = function()
-	local status_gps_ok, gps = pcall(require, "nvim-gps")
+	local status_gps_ok, gps = pcall(require, "nvim-navic")
 	if not status_gps_ok then
 		return ""
 	end
@@ -52,12 +49,11 @@ local get_gps = function()
 	end
 
 	if not require("user.functions").isempty(gps_location) then
-		return "" .. " " .. gps_location
+		return '' .. " " .. gps_location
 	else
 		return ""
 	end
 end
-
 local excludes = function()
 	if vim.tbl_contains(M.winbar_filetype_exclude, vim.bo.filetype) then
 		vim.opt_local.winbar = nil

@@ -165,7 +165,7 @@ local mappings = {
         f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
         F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
         i = { "<cmd>LspInfo<cr>", "Info" },
-        I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+        I = { "<cmd>Mason<cr>", "Installer Info" },
         l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
         q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
         r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
@@ -174,7 +174,7 @@ local mappings = {
             "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
             "Workspace Symbols",
         },
-        c = { "<cmd>lua require'copilot'.enable()<cr>", "Copilot" },
+        -- c = { "<cmd>lua require'copilot'.enable()<cr>", "Copilot" },
     },
 
     t = {
