@@ -33,17 +33,18 @@ return lazy.setup({
 	{ "lukas-reineke/indent-blankline.nvim", commit = "018bd04d80c9a73d399c1061fa0c3b14a7614399" },
 	{ "goolord/alpha-nvim", commit = "dafa11a6218c2296df044e00f88d9187222ba6b0" },
 	{ "folke/which-key.nvim", commit = "4b73390eec680b4c061ea175eb32c0ff3412271d" },
-	{"norcalli/nvim-colorizer.lua", commit = "36c610a9717cc9ec426a07c8e6bf3b3abcb139d6" },
-	{"kylechui/nvim-surround", commit = "e6047128e57c1aff1566fb9f627521d2887fc77a" },
-	{"tpope/vim-repeat", commit = "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
-	{"rcarriga/nvim-notify", commit = "50d037041ada0895aeba4c0215cde6d11b7729c4" },
+	{ "norcalli/nvim-colorizer.lua", commit = "36c610a9717cc9ec426a07c8e6bf3b3abcb139d6" },
+	{ "kylechui/nvim-surround", commit = "e6047128e57c1aff1566fb9f627521d2887fc77a" },
+	{ "tpope/vim-repeat", commit = "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
+	{ "rcarriga/nvim-notify", commit = "50d037041ada0895aeba4c0215cde6d11b7729c4" },
 	{ "ThePrimeagen/harpoon", commit = "f7040fd0c44e7a4010369136547de5604b9c22a1" },
-	{"stevearc/aerial.nvim", commit = "7371322c60120a56bcc833c407de96be42c18172" },
-	{"ghillb/cybu.nvim", commit = "395791b1e1177e3459c85415970ab8216b19a5dc" },
+	{ "stevearc/aerial.nvim", commit = "7371322c60120a56bcc833c407de96be42c18172" },
+	{ "ghillb/cybu.nvim", commit = "395791b1e1177e3459c85415970ab8216b19a5dc" },
 	{ "SmiteshP/nvim-navic", commit = "27124a773d362628b114cd12016e743dab4ccf3e" },
-	{"Pocco81/auto-save.nvim", commit = "979b6c82f60cfa80f4cf437d77446d0ded0addf0" },
-	{"Eandrju/cellular-automaton.nvim", commit = "679943b8e1e5ef79aaeeaf4b00782c52eb4e928f" },
-	--
+	{ "Pocco81/auto-save.nvim", commit = "979b6c82f60cfa80f4cf437d77446d0ded0addf0" },
+	{ "Eandrju/cellular-automaton.nvim", commit = "679943b8e1e5ef79aaeeaf4b00782c52eb4e928f" },
+	{ "nvim-pack/nvim-spectre", commit = "eb17a856a6f17e03d8d610cbc00cd9f2f39e3fd7" },
+
 	-- Colourschemes
 	{ "rebelot/kanagawa.nvim", commit = "22adef57f08a3cd07978b65966ce68da42501f68" },
 
@@ -70,6 +71,7 @@ return lazy.setup({
 
 	-- Telescope
 	{ "nvim-telescope/telescope.nvim", commit = "6258d50b09f9ae087317e392efe7c05a7323492d" },
+	{ "debugloop/telescope-undo.nvim", commit = "231b5ebb4328d2768c830c9a8d1b9c696116848d" },
 
 	-- Treesitter
 	{ "nvim-treesitter/nvim-treesitter", commit = "18f9e1a47fc25272836a84aa8adb03925c73b33d" },
@@ -82,6 +84,13 @@ return lazy.setup({
 
 	-- Tmux
 	{ "christoomey/vim-tmux-navigator", commit = "cdd66d6a37d991bba7997d593586fc51a5b37aa8" },
+
+	--Copilot
+	{
+		"zbirenbaum/copilot.lua",
+		-- event = "VeryLazy",
+		commit = "b3798d85322b1aaa56cad9d651d2d1aaec6298e9",
+	},
 
 	--For future needs
 
