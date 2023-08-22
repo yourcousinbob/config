@@ -49,9 +49,6 @@ alias gp='git push origin master'
 # conda
 alias anaconda='source ~/.config/zsh/conda'
 
-# cat
-alias cat='bat'
-
 # df
 alias df='duf'
 alias free='free -m' # show sizes in MB
@@ -67,3 +64,6 @@ alias ping='gping'
 
 # htop
 alias htop='btop'
+
+# keychain
+alias chain="/usr/bin/keychain --nogui $HOME/.ssh/github && source $HOME/.keychain/bobcraft-sh"

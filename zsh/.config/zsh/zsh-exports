@@ -23,6 +23,9 @@ eval "$(zoxide init zsh)"
 		&& export LF_ICONS
 }
 
+# turso
+export PATH="/home/bob/.turso:$PATH"
+
 source "${XDG_CONFIG_HOME:-$HOME/.config}/lf-shellcd/lf-shellcd"
 
 
