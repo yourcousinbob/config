@@ -37,13 +37,13 @@ return lazy.setup({
 	{ "kylechui/nvim-surround", commit = "e6047128e57c1aff1566fb9f627521d2887fc77a" },
 	{ "tpope/vim-repeat", commit = "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
 	{ "rcarriga/nvim-notify", commit = "50d037041ada0895aeba4c0215cde6d11b7729c4" },
-	{ "ThePrimeagen/harpoon", commit = "f7040fd0c44e7a4010369136547de5604b9c22a1" },
 	{ "stevearc/aerial.nvim", commit = "7371322c60120a56bcc833c407de96be42c18172" },
 	{ "ghillb/cybu.nvim", commit = "395791b1e1177e3459c85415970ab8216b19a5dc" },
 	{ "SmiteshP/nvim-navic", commit = "27124a773d362628b114cd12016e743dab4ccf3e" },
 	{ "Pocco81/auto-save.nvim", commit = "979b6c82f60cfa80f4cf437d77446d0ded0addf0" },
 	{ "Eandrju/cellular-automaton.nvim", commit = "679943b8e1e5ef79aaeeaf4b00782c52eb4e928f" },
 	{ "nvim-pack/nvim-spectre", commit = "eb17a856a6f17e03d8d610cbc00cd9f2f39e3fd7" },
+    { "ThePrimeagen/harpoon", branch = "harpoon2", dependencies = { "nvim-lua/plenary.nvim" }, commit = "a38be6e0dd4c6db66997deab71fc4453ace97f9c" },
 
 	-- Colourschemes
 	{ "rebelot/kanagawa.nvim", commit = "22adef57f08a3cd07978b65966ce68da42501f68" },
@@ -88,8 +88,22 @@ return lazy.setup({
 	--Copilot
 	{
 		"zbirenbaum/copilot.lua",
-		-- event = "VeryLazy",
+		event = "VeryLazy",
 		commit = "b3798d85322b1aaa56cad9d651d2d1aaec6298e9",
+	},
+
+	-- Obsidian
+	{
+		"epwalsh/obsidian.nvim",
+		commit = "6b17ee6cbd81f5f091712a59473b4257007ae336",
+		lazy = true,
+		event = { "BufReadPre path/to/my-vault/**.md" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		opts = {
+			dir = "/mnt/BigBoy/BobVault",
+		},
 	},
 
 	--For future needs

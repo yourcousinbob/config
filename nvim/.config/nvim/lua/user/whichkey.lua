@@ -82,14 +82,8 @@ local mappings = {
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["c"] = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
 	["a"] = { "<cmd>AerialToggle!<cr>j", "Aerial" },
-	["m"] = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Mark" },
-	["h"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoons" },
 	["q"] = { "<cmd>x<cr>", "Quit" },
 	["p"] = { "<cmd>Lazy<cr>", "Plugins" },
-	["1"] = { '<cmd>lua require("harpoon.ui").nav_file(1)<cr>', "Mark 1" },
-	["2"] = { '<cmd>lua require("harpoon.ui").nav_file(2)<cr>', "Mark 2" },
-	["3"] = { '<cmd>lua require("harpoon.ui").nav_file(3)<cr>', "Mark 3" },
-	["4"] = { '<cmd>lua require("harpoon.ui").nav_file(4)<cr>', "Mark 4" },
 
 	G = {
 		name = "Git",

@@ -28,4 +28,12 @@ export PATH="/home/bob/.turso:$PATH"
 
 source "${XDG_CONFIG_HOME:-$HOME/.config}/lf-shellcd/lf-shellcd"
 
+# pnpm
+export PNPM_HOME="/home/bob/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
+# aws
+export PATH=$PATH:/home/bob/Work/KJR/datarwe/aws_scripts

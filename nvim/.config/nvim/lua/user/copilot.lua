@@ -24,12 +24,12 @@ copilot.setup({
     auto_trigger = true,
     debounce = 75,
     keymap = {
-      accept = "<Right>",
+      accept = "<C-Right>",
       accept_word = false,
       accept_line = false,
       next = "<C-Up>",
       prev = "<C-Down>",
-      dismiss = "<Left>",
+      dismiss = "<C-Left>",
     },
   },
   filetypes = {
