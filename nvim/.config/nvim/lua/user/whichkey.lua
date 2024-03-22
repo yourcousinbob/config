@@ -170,6 +170,7 @@ local mappings = {
 		["3"] = { ":3ToggleTerm<cr>", "3" },
 		["4"] = { ":4ToggleTerm<cr>", "4" },
 		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+		d = { "<cmd>lua _LAZYDOCKER_TOGGLE()<CR>", "Lazydocker" },
 		t = { "<cmd>lua _BTOP_TOGGLE()<cr>", "System Monitor" },
 		p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
 		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
