@@ -43,7 +43,20 @@ return lazy.setup({
 	{ "Pocco81/auto-save.nvim", commit = "979b6c82f60cfa80f4cf437d77446d0ded0addf0" },
 	{ "Eandrju/cellular-automaton.nvim", commit = "679943b8e1e5ef79aaeeaf4b00782c52eb4e928f" },
 	{ "nvim-pack/nvim-spectre", commit = "eb17a856a6f17e03d8d610cbc00cd9f2f39e3fd7" },
-    { "ThePrimeagen/harpoon", branch = "harpoon2", dependencies = { "nvim-lua/plenary.nvim" }, commit = "a38be6e0dd4c6db66997deab71fc4453ace97f9c" },
+	{
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		commit = "a38be6e0dd4c6db66997deab71fc4453ace97f9c",
+	},
+	{
+		"ellisonleao/glow.nvim",
+		config = true,
+		cmd = "Glow",
+		commit = "238070a686c1da3bccccf1079700eb4b5e19aea4",
+	},
 
 	-- Colourschemes
 	{ "rebelot/kanagawa.nvim", commit = "22adef57f08a3cd07978b65966ce68da42501f68" },

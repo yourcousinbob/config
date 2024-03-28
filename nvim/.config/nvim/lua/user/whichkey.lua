@@ -175,6 +175,7 @@ local mappings = {
 		p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
 		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+		m = { "<cmd>Glow<cr>", "Markdown" },
 	},
 
 	r = {
