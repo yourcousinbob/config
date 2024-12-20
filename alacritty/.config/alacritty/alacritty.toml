@@ -1,5 +1,3 @@
-import = ["/home/bob/.config/alacritty/colors.toml", "/home/bob/.config/alacritty/fonts.toml"]
-live_config_reload = true
 
 [cursor]
 unfocused_hollow = false
@@ -25,3 +23,7 @@ lines = 24
 [window.padding]
 x = 12
 y = 12
+
+[general]
+live_config_reload = true
+import = ["/home/bob/.config/alacritty/colors.toml", "/home/bob/.config/alacritty/fonts.toml"]

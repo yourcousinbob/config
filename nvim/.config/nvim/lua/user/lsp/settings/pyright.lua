@@ -1,14 +1,15 @@
 return {
-  settings = {
-    python = {
-        analysis = {
+    settings = {
+        python = {
+            analysis = {
                 typeCheckingMode = "off",
                 diagnosticMode = "workspace",
+                lineLength = 120,
                 inlayHints = {
-                  variableTypes = true,
-                  functionReturnTypes = true,
+                    variableTypes = true,
+                    functionReturnTypes = true,
                 },
+            },
+        },
     },
-  },
-},
 }

@@ -1,6 +1,6 @@
 local status_ok, indent_blankline = pcall(require, "ibl")
 if not status_ok then
-	return
+    return
 end
 
-indent_blankline.setup({})
+indent_blankline.setup({ scope = { enabled = false } })

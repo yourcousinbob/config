@@ -1,7 +1,7 @@
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 # Update rate
-xset r rate 160 40
+xset r rate 150 50
 
 export EDITOR="nvim"
 export TERMINAL="alacritty"
