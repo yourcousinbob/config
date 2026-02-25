@@ -29,6 +29,7 @@ require("user.notify")
 require("user.winbar")
 require("user.glow")
 require("user.copilot")
+require("user.claude-code")
 
 -- require("user.obsidian")
 --require("user.dap")

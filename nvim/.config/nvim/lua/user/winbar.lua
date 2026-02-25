@@ -10,6 +10,7 @@ M.winbar_filetype_exclude = {
 	"toggleterm",
 	"Aerial",
 	"harpoon",
+    "ClaudeCode"
 }
 
 local get_filename = function()

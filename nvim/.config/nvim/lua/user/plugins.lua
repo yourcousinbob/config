@@ -104,6 +104,13 @@ return lazy.setup({
     -- Tmux
     { "christoomey/vim-tmux-navigator",              commit = "5b3c701686fb4e6629c100ed32e827edf8dad01e" },
 
+    -- Claude Code
+    { "greggh/claude-code.nvim",                     commit = "55c0cb59828fbc3bec744288286a46f5d5750b83",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+    },
+
     --Copilot
     {
         "zbirenbaum/copilot.lua",

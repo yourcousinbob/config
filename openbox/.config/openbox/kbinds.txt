@@ -1,86 +1,89 @@
-o W-1             	GoToDesktop
-o W-2             	GoToDesktop
-o W-3             	GoToDesktop
-o W-4             	GoToDesktop
-o W-5             	GoToDesktop
-o A-W-1           	SendToDesktop
-o A-W-2           	SendToDesktop
-o A-W-3           	SendToDesktop
-o A-W-4           	SendToDesktop
-o A-W-5           	SendToDesktop
-o W-Tab           	NextWindow
-o A-Tab           	NextWindow
-o W-h             	UnmaximizeFull
-o W-l             	UnmaximizeFull
-o W-k             	MaximizeFull
-o W-j             	UnmaximizeFull
-o W-Up            	Unmaximize
-o W-Left          	Unmaximize
-o W-Down          	Unmaximize
-o W-Right         	Unmaximize
-o W-u             	Unmaximize
-o W-i             	Unmaximize
-o W-o             	Unmaximize
-o W-KP_1          	UnmaximizeFull
-o W-KP_2          	UnmaximizeFull
-o W-KP_3          	UnmaximizeFull
-o W-KP_4          	UnmaximizeFull
-o W-KP_5          	MaximizeFull
-o W-KP_6          	UnmaximizeFull
-o W-KP_7          	UnmaximizeFull
-o W-KP_8          	UnmaximizeFull
-o W-KP_9          	UnmaximizeFull
-o C-A-Up          	MoveRelative
-o C-A-Down        	MoveRelative
-o C-A-Left        	MoveRelative
-o C-A-Right       	MoveRelative
-o W-A-l           	ResizeRelative
-o W-A-h           	ResizeRelative
-o W-A-j           	ResizeRelative
-o W-A-k           	ResizeRelative
-o W-A-Left        	SendToDesktopLeft
-o W-A-Right       	SendToDesktopRight
-x XF86AudioRaiseVolume	volume --inc
-x XF86AudioLowerVolume	volume --dec
-x XF86AudioMute   	volume --toggle
-x XF86AudioMicMute	volume --toggle-mic
-x XF86AudioStop   	mpc stop
-x XF86AudioPlay   	mpc toggle
-x XF86AudioPrev   	mpc prev
-x XF86AudioNext   	mpc next
-x XF86MonBrightnessUp	brightness --inc
-x XF86MonBrightnessDown	brightness --dec
-x Print           	takeshot --now
-x A-Print         	takeshot --in5
-x S-Print         	takeshot --in10
-x C-Print         	takeshot --win
-x C-A-Print       	takeshot --area
-x W-Return        	alacritty
-x W-t             	furminal
-x W-f             	thunar
-x W-b             	brave
-x W-e             	geany
-x A-F1            	~/.config/openbox/rofi/bin/launcher
-x W-n             	networkmanager_dmenu
-x W-m             	~/.config/openbox/rofi/bin/music
-x W-p             	~/.config/openbox/rofi/bin/powermenu
-x W-s             	~/.config/openbox/rofi/bin/screenshot
-x W-r             	~/.config/openbox/rofi/bin/runner
-x W-c             	color-gpick
-x W-A-n           	alacritty -e nvim
-x W-A-f           	alacritty -e ranger
-x W-A-Escape      	betterlockscreen --lock
-o C-S-Escape      	Exit
-o C-S-BackSpace   	Restart
-o C-S-R           	Reconfigure
-x W-Escape        	xkill
-o W-q             	Close
-o A-F5            	Iconify
-o A-F6            	ToggleMaximize
-o A-F7            	ToggleDecorations
-o W-d             	ToggleShowDesktop
-o A-p             	Resize
-o A-m             	Move
-o A-r             	root-menu
-o C-A-space       	app-menu
-o A-space         	client-menu
+2025-05-06	rc.xml KEYBINDS
+-------------------------------
+
+ 0	W-1           				GoToDesktop
+ 1	W-2           				GoToDesktop
+ 2	W-3           				GoToDesktop
+ 3	W-4           				GoToDesktop
+ 4	W-5           				GoToDesktop
+ 5	A-W-1         				SendToDesktop
+ 6	A-W-2         				SendToDesktop
+ 7	A-W-3         				SendToDesktop
+ 8	A-W-4         				SendToDesktop
+ 9	A-W-5         				SendToDesktop
+10	W-Tab         				NextWindow
+11	A-Tab         				NextWindow
+12	W-h           				UnmaximizeFull
+13	W-l           				UnmaximizeFull
+14	W-k           				MaximizeFull
+15	W-j           				UnmaximizeFull
+16	W-Up          				Unmaximize
+17	W-Left        				Unmaximize
+18	W-Down        				Unmaximize
+19	W-Right       				Unmaximize
+20	W-u           				Unmaximize
+21	W-i           				Unmaximize
+22	W-o           				Unmaximize
+23	W-KP_1        				UnmaximizeFull
+24	W-KP_2        				UnmaximizeFull
+25	W-KP_3        				UnmaximizeFull
+26	W-KP_4        				UnmaximizeFull
+27	W-KP_5        				MaximizeFull
+28	W-KP_6        				UnmaximizeFull
+29	W-KP_7        				UnmaximizeFull
+30	W-KP_8        				UnmaximizeFull
+31	W-KP_9        				UnmaximizeFull
+32	C-A-Up        				MoveRelative
+33	C-A-Down      				MoveRelative
+34	C-A-Left      				MoveRelative
+35	C-A-Right     				MoveRelative
+36	W-A-l         				ResizeRelative
+37	W-A-h         				ResizeRelative
+38	W-A-j         				ResizeRelative
+39	W-A-k         				ResizeRelative
+40	W-A-Left      				SendToDesktopLeft
+41	W-A-Right     				SendToDesktopRight
+42	XF86AudioRaiseVolume	volume --inc
+43	XF86AudioLowerVolume	volume --dec
+44	XF86AudioMute  			volume --toggle
+45	XF86AudioMicMute	volume --toggle-mic
+46	XF86AudioStop  			mpc stop
+47	XF86AudioPlay  			mpc toggle
+48	XF86AudioPrev  			mpc prev
+49	XF86AudioNext  			mpc next
+50	XF86MonBrightnessUp	brightness --inc
+51	XF86MonBrightnessDown	brightness --dec
+52	Print         				takeshot --now
+53	A-Print       				takeshot --in5
+54	S-Print       				takeshot --in10
+55	C-Print       				takeshot --win
+56	C-A-Print     				takeshot --area
+57	W-Return      				alacritty
+58	W-t           				furminal
+59	W-f           				thunar
+60	W-b           				brave
+61	W-e           				geany
+62	A-F1          				~/.config/openbox/rofi/bin/launcher
+63	W-n           				networkmanager_dmenu
+64	W-m           				~/.config/openbox/rofi/bin/music
+65	W-p           				~/.config/openbox/rofi/bin/powermenu
+66	W-s           				~/.config/openbox/rofi/bin/screenshot
+67	W-r           				~/.config/openbox/rofi/bin/runner
+68	W-c           				color-gpick
+69	W-A-n         				alacritty -e nvim
+70	W-A-f         				alacritty -e ranger
+71	W-A-Escape     			betterlockscreen --lock
+72	C-S-Escape     			Exit
+73	C-S-BackSpace  			Restart
+74	C-S-R         				Reconfigure
+75	W-Escape      				xkill
+76	W-q           				Close
+77	A-F5          				Iconify
+78	A-F6          				ToggleMaximize
+79	A-F7          				ToggleDecorations
+80	W-d           				ToggleShowDesktop
+81	A-p           				Resize
+82	A-m           				Move
+83	A-r           				root-menu
+84	C-A-space     				app-menu
+85	A-space       				client-menu

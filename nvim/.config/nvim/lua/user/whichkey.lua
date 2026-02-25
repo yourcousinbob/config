@@ -123,10 +123,6 @@ local mappings = {
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		u = { "<cmd>Telescope undo<cr>", "Undo Tree" },
-		f = {
-			"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-			"Find files",
-		},
 		j = {
 			"<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>",
 			"Next Diagnostic",
@@ -139,6 +135,7 @@ local mappings = {
 		h = { "<cmd>Telescope help_tags<cr>", "Help" },
 		l = { "<cmd>Telescope resume<cr>", "Last Search" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+		f = { "<cmd>Telescope find_files<cr>", "Find Files" },
 		p = { "<cmd>Telescope projects<cr>", "Projects" },
 		r = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
@@ -170,6 +167,7 @@ local mappings = {
 		["3"] = { ":3ToggleTerm<cr>", "3" },
 		["4"] = { ":4ToggleTerm<cr>", "4" },
 		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+		c = { "<cmd>ClaudeCode<CR>", "ClaudeCode" },
 		d = { "<cmd>lua _LAZYDOCKER_TOGGLE()<CR>", "Lazydocker" },
 		t = { "<cmd>lua _BTOP_TOGGLE()<cr>", "System Monitor" },
 		p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
