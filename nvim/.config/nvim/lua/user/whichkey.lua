@@ -1,212 +1,139 @@
-local status_ok, which_key = pcall(require, "which-key")
-if not status_ok then
-	return
+local wk_ok, wk = pcall(require, "which-key")
+if not wk_ok then
+    return
 end
 
-local setup = {
-	plugins = {
-		marks = true, -- shows a list of your  on ' and `
-		registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
-		spelling = {
-			enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
-			suggestions = 20, -- how many suggestions should be shown in the list?
-		},
-		-- the presets plugin, adds help for a bunch of default keybindings in Neovim
-		-- No actual key bindings are created
-		presets = {
-			operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-			motions = false, -- adds help for motions
-			text_objects = false, -- help for text objects triggered after entering an operator
-			windows = true, -- default bindings on <c-w>
-			nav = true, -- misc bindings to work with windows z = true, -- bindings for folds, spelling and others prefixed with z
-			g = true, -- bindings for prefixed with g
-		},
-	},
-	-- add operators that will trigger motion and text object completion
-	-- to enable all native operators, set the preset / operators plugin above
-	-- operators = { gc = "Comments" },
-	key_labels = {
-		-- override the label used to display some keys. It doesn't effect WK in any other way.
-		-- For example:
-		-- ["<space>"] = "SPC",
-		-- ["<cr>"] = "RET",
-		-- ["<tab>"] = "TAB",
-	},
-	icons = {
-		breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-		separator = "➜", -- symbol used between a key and it's label
-		group = "+", -- symbol prepended to a group
-	},
-	popup_mappings = {
-		scroll_down = "<c-d>", -- binding to scroll down inside the popup
-		scroll_up = "<c-u>", -- binding to scroll up inside the popup
-	},
-	window = {
-		border = "rounded", -- none, single, double, shadow
-		position = "bottom", -- bottom, top
-		margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-		padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-		winblend = 0,
-	},
-	layout = {
-		height = { min = 4, max = 25 }, -- min and max height of the columns
-		width = { min = 20, max = 50 }, -- min and max width of the columns
-		spacing = 3, -- spacing between columns
-		align = "center", -- align columns left, center or right
-	},
-	ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
-	hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-	show_help = false, -- show help message on the command line when the popup is visible
-	-- triggers = "auto", -- automatically setup triggers
-	-- triggers = {"<leader>"} -- or specify a list manually
-	triggers_blacklist = {
-		-- list of mode / prefixes that should never be hooked by WhichKey
-		-- this is mostly relevant for key maps that start with a native binding
-		-- most people should not need to change this
-		i = { "j", "k" },
-		v = { "j", "k" },
-	},
-}
+wk.setup({})
 
-local opts = {
-	mode = "n", -- NORMAL mode
-	prefix = "<leader>",
-	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-	silent = true, -- use `silent` when creating keymaps
-	noremap = true, -- use `noremap` when creating keymaps
-	nowait = true, -- use `nowait` when creating keymaps
-}
+local conf = require("telescope.config").values
+local function harpoon_toggle_telescope(harpoon_files)
+    local harpoon = require("harpoon")
+    local make_finder = function()
+        local paths = {}
+        for _, item in ipairs(harpoon_files.items) do
+            table.insert(paths, item.value)
+        end
+        return require("telescope.finders").new_table({ results = paths })
+    end
 
-local mappings = {
-	["s"] = { "<cmd>Alpha<cr>", "Start" },
-	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["c"] = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
-	["a"] = { "<cmd>AerialToggle!<cr>j", "Aerial" },
-	["q"] = { "<cmd>x<cr>", "Quit" },
-	["p"] = { "<cmd>Lazy<cr>", "Plugins" },
+    require("telescope.pickers")
+        .new({}, {
+            prompt_title = "Harpoon",
+            finder = make_finder(),
+            previewer = conf.file_previewer({}),
+            sorter = conf.generic_sorter({}),
+            attach_mappings = function(prompt_buffer_number, map)
+                map("n", "d", function()
+                    local state = require("telescope.actions.state")
+                    local selected_entry = state.get_selected_entry()
+                    local current_picker = state.get_current_picker(prompt_buffer_number)
+                    harpoon:list():removeAt(selected_entry.index)
+                    current_picker:refresh(make_finder())
+                end)
+                return true
+            end,
+        })
+        :find()
+end
 
-	G = {
-		name = "Git",
-		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-		l = { "<cmd>GitBlameToggle<cr>", "Blame" },
-		t = { "<cmd>Gitsigns toggle_signs<cr>", "Toggle Signs" },
-		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-		d = {
-			"<cmd>Gitsigns diffthis HEAD<cr>",
-			"Diff",
-		},
-	},
+wk.add({
+    -- Groups
+    { "<leader>G", group = "Git" },
+    { "<leader>S", group = "Split", icon = { icon = "", color = "purple" } },
+    { "<leader>d", group = "Debug" },
+    { "<leader>f", group = "Find" },
+    { "<leader>l", group = "LSP" , icon = { icon = "󰘦", color = "green" }},
+    { "<leader>t", group = "Terminal" },
+    { "<leader>r", group = "Run" },
+    { "<leader>z", group = "Fun", icon = { icon = "󱊈", color = "red" } },
 
-	S = {
-		name = "Split",
-		h = { "<cmd>split<cr>", "HSplit" },
-		v = { "<cmd>vsplit<cr>", "VSplit" },
-	},
+    -- Harpoon
+    { "<leader>h", function() require("harpoon"):list():add() end, desc = "Harpoon", icon = { icon = "󱡅", color = "white" } },
+    { "<leader>1", function() require("harpoon"):list():select(1) end, desc = "Harpoon 1", icon = { icon = "󱡅", color = "white" } },
+    { "<leader>2", function() require("harpoon"):list():select(2) end, desc = "Harpoon 2", icon = { icon = "󱡅", color = "white" } },
+    { "<leader>3", function() require("harpoon"):list():select(3) end, desc = "Harpoon 3", icon = { icon = "󱡅", color = "white" } },
+    { "<leader>4", function() require("harpoon"):list():select(4) end, desc = "Harpoon 4", icon = { icon = "󱡅", color = "white" } },
 
-	d = {
-		name = "Debug",
-		b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
-		c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-		i = { "<cmd>lua require'dap'.step_into()<cr>", "Into" },
-		o = { "<cmd>lua require'dap'.step_over()<cr>", "Over" },
-		O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },
-		r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Repl" },
-		l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
-		u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
-		x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
-	},
+    -- Top-level
+    { "<leader>s", "<cmd>Alpha<cr>", desc = "Start", icon = {icon="", color="green" } },
+    { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Explorer", icon = {icon="󱏒", color="yellow" } },
+    { "<leader>c", "<Plug>(comment_toggle_linewise_current)", desc = "Comment", icon = {icon="", color="white" } },
+    { "<leader>q", "<cmd>x<cr>", desc = "Quit" },
+    { "<leader>p", "<cmd>Lazy<cr>", desc = "Plugins", icon = {icon="", color="orange" }},
 
-	f = {
-		name = "Find",
-		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		u = { "<cmd>Telescope undo<cr>", "Undo Tree" },
-		j = {
-			"<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>",
-			"Next Diagnostic",
-		},
-		k = {
-			"<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
-			"Prev Diagnostic",
-		},
-		t = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-		h = { "<cmd>Telescope help_tags<cr>", "Help" },
-		l = { "<cmd>Telescope resume<cr>", "Last Search" },
-		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-		f = { "<cmd>Telescope find_files<cr>", "Find Files" },
-		p = { "<cmd>Telescope projects<cr>", "Projects" },
-		r = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
-		R = { "<cmd>Telescope registers<cr>", "Registers" },
-		K = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-		C = { "<cmd>Telescope commands<cr>", "Commands" },
-	},
+    -- Git
+    { "<leader>Gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", desc = "Lazygit" },
+    { "<leader>Gl", "<cmd>GitBlameToggle<cr>", desc = "Blame" },
+    { "<leader>Gt", "<cmd>Gitsigns toggle_signs<cr>", desc = "Toggle Signs" },
+    { "<leader>Go", "<cmd>Telescope git_status<cr>", desc = "Open changed file" },
+    { "<leader>Gb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
+    { "<leader>Gc", "<cmd>Telescope git_commits<cr>", desc = "Checkout commit" },
+    { "<leader>Gd", "<cmd>Gitsigns diffthis HEAD<cr>", desc = "Diff" },
 
-	l = {
-		name = "LSP",
-		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-		f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
-		F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
-		i = { "<cmd>Mason<cr>", "Installer Info" },
-		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-		S = {
-			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-			"Workspace Symbols",
-		},
-		c = { "<cmd>Copilot toggle<cr>", "Copilot toggle" },
-	},
+    -- Split
+    { "<leader>Sh", "<cmd>split<cr>", desc = "HSplit" },
+    { "<leader>Sv", "<cmd>vsplit<cr>", desc = "VSplit" },
 
-	t = {
-		name = "Terminal",
-		["1"] = { ":1ToggleTerm<cr>", "1" },
-		["2"] = { ":2ToggleTerm<cr>", "2" },
-		["3"] = { ":3ToggleTerm<cr>", "3" },
-		["4"] = { ":4ToggleTerm<cr>", "4" },
-		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-		c = { "<cmd>ClaudeCode<CR>", "ClaudeCode" },
-		d = { "<cmd>lua _LAZYDOCKER_TOGGLE()<CR>", "Lazydocker" },
-		t = { "<cmd>lua _BTOP_TOGGLE()<cr>", "System Monitor" },
-		p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
-		m = { "<cmd>Glow<cr>", "Markdown" },
-	},
+    -- Find
+    { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+    { "<leader>ft", "<cmd>Telescope live_grep theme=ivy<cr>", desc = "Find Text" },
+    { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent File" },
+    { "<leader>fc", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme" },
+    { "<leader>fb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
+    { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help" },
+    { "<leader>fl", "<cmd>Telescope resume<cr>", desc = "Last Search" },
+    { "<leader>fM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
+    { "<leader>fj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>", desc = "Next Diagnostic" },
+    { "<leader>fk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", desc = "Prev Diagnostic" },
+    { "<leader>fu", "<cmd>Telescope undo<cr>", desc = "Undo Tree" },
+    { "<leader>fp", "<cmd>Telescope projects<cr>", desc = "Projects" },
+    { "<leader>fR", "<cmd>Telescope registers<cr>", desc = "Registers" },
+    { "<leader>fK", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
+    { "<leader>fC", "<cmd>Telescope commands<cr>", desc = "Commands" },
+    { "<leader>fH", function() harpoon_toggle_telescope(require("harpoon"):list()) end, desc = "Harpoon", icon = { icon = "󱡅", color = "white" } },
 
-	r = {
-		name = "Run",
-		r = { "<Plug>SnipRun", "Run" },
-		R = { "<Plug>SnipReplMemoryClean", "Reset Memory" },
-		b = { "?#%%<cr>jv/#%%<cr>h:SnipRun<cr>", "Run Block" },
-		o = { "<Plug>SnipRunOperator", "Run Operator" },
-		i = { "<Plug>SnipInfo", "Snip Info" },
-		s = { "<Plug>SnipReset", "Stop" },
-	},
+    -- LSP
+    { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action" },
+    { "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", desc = "Format" },
+    { "<leader>lF", "<cmd>LspToggleAutoFormat<cr>", desc = "Toggle Autoformat" },
+    { "<leader>li", "<cmd>Mason<cr>", desc = "Installer Info" },
+    { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "CodeLens Action" },
+    { "<leader>lq", "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", desc = "Quickfix" },
+    { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename" },
+    { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
+    { "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols" },
+    { "<leader>lc", "<cmd>Copilot toggle<cr>", desc = "Copilot toggle" },
 
-	z = {
-		name = "Fun",
-		r = { "<cmd>CellularAutomaton make_it_rain<cr>", "Rain" },
-		g = { "<cmd>CellularAutomaton game_of_life<cr>", "Game of Life" },
-	},
-}
+    -- Terminal
+    { "<leader>t1", ":1ToggleTerm<cr>", desc = "1" },
+    { "<leader>t2", ":2ToggleTerm<cr>", desc = "2" },
+    { "<leader>t3", ":3ToggleTerm<cr>", desc = "3" },
+    { "<leader>t4", ":4ToggleTerm<cr>", desc = "4" },
+    { "<leader>tg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", desc = "Lazygit" },
+    { "<leader>td", "<cmd>lua _LAZYDOCKER_TOGGLE()<CR>", desc = "Lazydocker" },
+    { "<leader>tt", "<cmd>lua _BTOP_TOGGLE()<cr>", desc = "System Monitor" },
+    { "<leader>tp", "<cmd>lua _PYTHON_TOGGLE()<cr>", desc = "Python" },
+    { "<leader>tc", "<cmd>ClaudeCode<CR>", desc = "ClaudeCode" },
+    { "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Horizontal" },
+    { "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Vertical" },
+    { "<leader>tm", "<cmd>Glow<cr>", desc = "Markdown" },
 
-local vopts = {
-	mode = "v", -- VISUAL mode
-	prefix = "<leader>",
-	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-	silent = true, -- use `silent` when creating keymaps
-	noremap = true, -- use `noremap` when creating keymaps
-	nowait = true, -- use `nowait` when creating keymaps
-}
+    -- Run
+    -- { "<leader>rr", "<Plug>SnipRun", desc = "Run" },
+    -- { "<leader>rR", "<Plug>SnipReplMemoryClean", desc = "Reset Memory" },
+    -- { "<leader>ro", "<Plug>SnipRunOperator", desc = "Run Operator" },
+    -- { "<leader>ri", "<Plug>SnipInfo", desc = "Snip Info" },
+    -- { "<leader>rs", "<Plug>SnipReset", desc = "Stop" },
 
-local vmappings = {
-	["c"] = { "<Plug>(comment_toggle_linewise_visual)", "Comment" },
-	["B"] = { "<Plug>SnipRun", "Run" },
-}
+    -- Fun
+    { "<leader>zr", "<cmd>CellularAutomaton make_it_rain<cr>", desc = "Rain" },
+    { "<leader>zg", "<cmd>CellularAutomaton game_of_life<cr>", desc = "Game of Life" },
 
-which_key.setup(setup)
-which_key.register(mappings, opts)
-which_key.register(vmappings, vopts)
+    -- Visual mode
+    { "<leader>c", "<Plug>(comment_toggle_linewise_visual)", desc = "Comment", mode = "v" },
+    { "<leader>B", "<Plug>SnipRun", desc = "Run", mode = "v" },
+
+    { "<leader>c", "<Plug>(comment_toggle_linewise_visual)", desc = "Comment", mode = "v" },
+    { "<leader>B", "<Plug>SnipRun", desc = "Run", mode = "v" },
+
+})

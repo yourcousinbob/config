@@ -15,7 +15,6 @@ local servers = {
 	"html",
 	"lua_ls",
 	"jsonls",
-	"tsserver",
 	"pyright",
 	"bashls",
 }
@@ -34,26 +33,20 @@ mason_lspconfig.setup({
 	automatic_installation = true,
 })
 
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
-	return
-end
+local handlers = require("user.lsp.handlers")
 
-local opts = {}
-
-for _, server in pairs(servers) do
-	opts = {
-		on_attach = require("user.lsp.handlers").on_attach,
-		capabilities = require("user.lsp.handlers").capabilities,
+for _, server_name in ipairs(servers) do
+	local opts = {
+		on_attach = handlers.on_attach,
+		capabilities = handlers.capabilities,
 	}
 
-	server = vim.split(server, "@")[1]
-
-	if server == "pyright" then
-		local pyright_opts = require("user.lsp.settings.pyright")
-		opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+	local has_settings, server_settings = pcall(require, "user.lsp.settings." .. server_name)
+	if has_settings then
+		opts = vim.tbl_deep_extend("force", server_settings, opts)
 	end
 
-	lspconfig[server].setup(opts)
-	::continue::
+	vim.lsp.config(server_name, opts)
 end
+
+vim.lsp.enable(servers)

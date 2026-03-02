@@ -4,7 +4,25 @@ if not status_ok then
 end
 
 configs.setup({
-	ensure_installed = "all", -- one of "all" or a list of languages
+    ensure_installed = {
+            "json",
+            "javascript",
+            "typescript",
+            "tsx",
+            "yaml",
+            "html",
+            "css",
+            "markdown",
+            "markdown_inline",
+            "bash",
+            "lua",
+            "vim",
+            "dockerfile",
+            "gitignore",
+            "query",
+            "python",
+            "c",
+    },
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 	ignore_install = { "markdown" }, -- List of parsers to ignore installing
 	highlight = {
@@ -48,4 +66,3 @@ configs.setup({
 		},
 	},
 })
-
