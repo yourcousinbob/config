@@ -7,7 +7,7 @@
 killall -9 xfsettingsd picom polybar mpd dunst ksuperkey xfce4-power-manager
 
 ## Restore Wallpaper
-# nitrogen --restore
+nitrogen --restore
 
 ## xfce4-settings daemon
 xfsettingsd &

@@ -56,9 +56,6 @@ alias free='free -m' # show sizes in MB
 # ps
 alias ps='procs'
 
-# rm
-alias rm='rip'
-
 # ping
 alias ping='gping'
 

@@ -400,22 +400,22 @@
     <!-- Media Controls-->
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
-        <command>volume --inc</command>
+        <command>ob-volume --inc</command>
       </action>
     </keybind>
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
-        <command>volume --dec</command>
+        <command>ob-volume --dec</command>
       </action>
     </keybind>
     <keybind key="XF86AudioMute">
       <action name="Execute">
-        <command>volume --toggle</command>
+        <command>ob-volume --toggle</command>
       </action>
     </keybind>
     <keybind key="XF86AudioMicMute">
       <action name="Execute">
-        <command>volume --toggle-mic</command>
+        <command>ob-volume --toggle-mic</command>
       </action>
     </keybind>
     <keybind key="XF86AudioStop">
@@ -441,38 +441,38 @@
     <!-- Brightness Control -->
     <keybind key="XF86MonBrightnessUp">
       <action name="Execute">
-        <command>brightness --inc</command>
+        <command>ob-brightness --inc</command>
       </action>
     </keybind>
     <keybind key="XF86MonBrightnessDown">
       <action name="Execute">
-        <command>brightness --dec</command>
+        <command>ob-brightness --dec</command>
       </action>
     </keybind>
     <!-- Screenshot Keys -->
     <keybind key="Print">
       <action name="Execute">
-        <command>takeshot --now</command>
+        <command>ob-screenshot --now</command>
       </action>
     </keybind>
     <keybind key="A-Print">
       <action name="Execute">
-        <command>takeshot --in5</command>
+        <command>ob-screenshot --in5</command>
       </action>
     </keybind>
     <keybind key="S-Print">
       <action name="Execute">
-        <command>takeshot --in10</command>
+        <command>ob-screenshot --in10</command>
       </action>
     </keybind>
     <keybind key="C-Print">
       <action name="Execute">
-        <command>takeshot --win</command>
+        <command>ob-screenshot --win</command>
       </action>
     </keybind>
     <keybind key="C-A-Print">
       <action name="Execute">
-        <command>takeshot --area</command>
+        <command>ob-screenshot --area</command>
       </action>
     </keybind>
     <!-- ################################ Launch Applications ################################ -->
@@ -484,7 +484,7 @@
     </keybind>
     <keybind key="W-t">
       <action name="Execute">
-        <command>furminal</command>
+        <command>ob-furminal</command>
       </action>
     </keybind>
     <keybind key="W-f">
@@ -535,7 +535,7 @@
     </keybind>
     <keybind key="W-c">
       <action name="Execute">
-        <command>color-gpick</command>
+        <command>ob-colorpicker</command>
       </action>
     </keybind>
     <!-- CLI Apps -->

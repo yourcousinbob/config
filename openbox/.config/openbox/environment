@@ -1,0 +1,2 @@
+PATH="$HOME/.config/openbox/scripts:$PATH"
+XDG_CURRENT_DESKTOP='openbox'

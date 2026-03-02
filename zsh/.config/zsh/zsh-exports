@@ -18,15 +18,15 @@ eval "$(fnm env --use-on-cd)"
 eval "$(zoxide init zsh)"
 
 # lf
-[ -f ~/.config/lf/icons ] && {
-	LF_ICONS="$(tr '\n' ':' <~/.config/lf/icons)" \
-		&& export LF_ICONS
-}
+#[ -f ~/.config/lf/icons ] && {
+	#LF_ICONS="$(tr '\n' ':' <~/.config/lf/icons)" \
+	#	&& export LF_ICONS
+#}
 
 # turso
 export PATH="/home/bob/.turso:$PATH"
 
-source "${XDG_CONFIG_HOME:-$HOME/.config}/lf-shellcd/lf-shellcd"
+# source "${XDG_CONFIG_HOME:-$HOME/.config}/lf-shellcd/lf-shellcd"
 
 # pnpm
 export PNPM_HOME="/home/bob/.local/share/pnpm"
@@ -35,11 +35,11 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-# aws
-export PATH=$PATH:/home/bob/Work/KJR/datarwe/aws_scripts
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/mnt/BigBoy/Work/Propel/google-cloud-sdk/path.zsh.inc' ]; then . '/mnt/BigBoy/Work/Propel/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/mnt/BigBoy/Work/Propel/google-cloud-sdk/completion.zsh.inc' ]; then . '/mnt/BigBoy/Work/Propel/google-cloud-sdk/completion.zsh.inc'; fi
+
+# conda bug
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
